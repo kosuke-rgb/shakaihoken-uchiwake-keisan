@@ -1,0 +1,480 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>給与の社会保険料 内訳計算ツール</title>
+<meta name="description" content="額面月収を入れるだけで、給与から天引きされる健康保険料・厚生年金保険料・雇用保険料の内訳をまとめて計算できる無料ツールです。「なぜこんなに引かれるの?」がひと目でわかります。">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://webtools-labs.com/shakaihoken-uchiwake-keisan/">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2370765779014113" crossorigin="anonymous"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NKK5TXCQEK"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-NKK5TXCQEK');
+</script>
+<script>
+(function () {
+  var fired = false;
+  function fireOnce() {
+    if (fired) return;
+    fired = true;
+    if (typeof gtag === 'function') gtag('event', 'tool_used', { tool_name: document.title });
+  }
+  document.addEventListener('input', fireOnce, true);
+  document.addEventListener('change', fireOnce, true);
+})();
+</script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230f766e'/%3E%3Ctext x='50' y='68' font-size='60' text-anchor='middle' fill='white' font-family='sans-serif'%3E%EF%BF%A5%3C/text%3E%3C/svg%3E">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="webtools-labs">
+<meta property="og:title" content="給与の社会保険料 内訳計算ツール">
+<meta property="og:description" content="額面月収を入れるだけで、健康保険料・厚生年金保険料・雇用保険料の内訳をまとめて計算できます。">
+<meta property="og:url" content="https://webtools-labs.com/shakaihoken-uchiwake-keisan/">
+<meta property="og:image" content="https://webtools-labs.com/shakaihoken-uchiwake-keisan/og-image.png">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="給与の社会保険料 内訳計算ツール">
+<meta name="twitter:description" content="額面月収から健康保険・厚生年金・雇用保険の天引き額の内訳をすぐ計算できる無料ツール。">
+<meta name="twitter:image" content="https://webtools-labs.com/shakaihoken-uchiwake-keisan/og-image.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "給与の社会保険料 内訳計算ツール",
+  "url": "https://webtools-labs.com/shakaihoken-uchiwake-keisan/",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any",
+  "description": "額面月収を入れるだけで、健康保険料・厚生年金保険料・雇用保険料の内訳をまとめて計算できる無料ツール。",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "JPY" },
+  "inLanguage": "ja"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "なぜ健康保険料・厚生年金保険料は会社と折半なんですか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "健康保険と厚生年金は、会社(事業主)と従業員が保険料を半分ずつ負担する「労使折半」という仕組みになっています。給与明細に書かれている金額は、あくまで従業員本人が負担する半分の金額です。同額を会社側も負担しています。" }
+    },
+    {
+      "@type": "Question",
+      "name": "都道府県によって金額は違いますか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "協会けんぽの健康保険料率は都道府県ごとに異なります。本ツールは東京都の令和8年度の料率(9.85%)を使用しています。勤務先が加入している健康保険組合(組合健保)の場合は、料率がこれと異なることがあります。正確な料率は給与明細や勤務先の担当部署でご確認ください。" }
+    },
+    {
+      "@type": "Question",
+      "name": "40歳になると何が変わりますか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "40歳になると「介護保険第2号被保険者」として介護保険料の負担が新たに加わります(65歳になるまで)。本ツールで年齢区分を「40歳以上65歳未満」に切り替えると、介護保険料を含めた内訳が確認できます。" }
+    },
+    {
+      "@type": "Question",
+      "name": "雇用保険料はボーナス(賞与)にもかかりますか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "はい。雇用保険料は毎月の給与だけでなく、賞与(ボーナス)にも同じ料率がかかります。健康保険料・厚生年金保険料のように上限額(標準報酬月額の上限)が設定されていないのも特徴です。" }
+    },
+    {
+      "@type": "Question",
+      "name": "厚生年金保険料に上限はありますか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "はい。厚生年金保険料は「標準報酬月額」が65万円を上限として計算されるため、月収がそれ以上になっても保険料はそれ以上増えません。本ツールは簡易計算のため、この上限(標準報酬月額の区分表)までは反映していません。目安としてご利用ください。" }
+    },
+    {
+      "@type": "Question",
+      "name": "学生アルバイトでも社会保険料は天引きされますか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "勤務先の従業員数や労働時間・雇用期間などの加入要件を満たす場合は、アルバイトでも社会保険(健康保険・厚生年金)や雇用保険への加入・保険料の天引きが発生します。扶養の範囲内で働きたい場合の年収の目安は「扶養の壁チェッカー」もあわせてご確認ください。" }
+    }
+  ]
+}
+</script>
+<style>
+:root {
+  --bg: #ffffff;
+  --surface-2: #f7f7f7;
+  --ink: #1a1a1a;
+  --muted: #767676;
+  --line: #e3e3e3;
+  --accent: #0f766e;
+  --best-bg: #f0f8f6;
+  --warn-bg: #fff7ed;
+  --warn-ink: #9a5b00;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", Meiryo, sans-serif;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+.page { max-width: 720px; margin: 0 auto; padding: 3rem 1.25rem 4rem; }
+header.masthead { margin-bottom: 1.5rem; }
+h1 {
+  font-weight: 700;
+  font-size: clamp(1.4rem, 4.5vw, 1.7rem);
+  margin: 0 0 0.7rem;
+  letter-spacing: 0.01em;
+}
+p.lede { color: var(--muted); margin: 0; max-width: 60ch; font-size: 0.95rem; }
+.updated-note { display: block; margin-top: 0.9rem; font-size: 0.78rem; color: var(--muted); }
+
+.notice-box {
+  background: var(--warn-bg); color: var(--warn-ink); border-radius: 8px;
+  padding: 0.9rem 1.1rem; font-size: 0.85rem; margin-bottom: 2rem;
+}
+
+section { margin-bottom: 2.5rem; }
+h2 { font-size: 1.05rem; font-weight: 700; margin: 0 0 1rem; }
+
+.field-row { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.25rem; }
+.field { flex: 1; min-width: 160px; }
+.field label { display: block; font-size: 0.83rem; color: var(--muted); margin-bottom: 0.35rem; }
+.field input[type="number"], .field select {
+  width: 100%; font-variant-numeric: tabular-nums; font-size: 1.05rem; font-family: inherit;
+  padding: 0.55rem 0.7rem; border: 1px solid var(--line); border-radius: 6px;
+  background: var(--bg); color: var(--ink);
+}
+.field input:focus, .field select:focus { outline: none; border-color: var(--accent); }
+.field-hint { font-size: 0.76rem; color: var(--muted); margin-top: 0.3rem; }
+
+.summary-cards { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.5rem; }
+.summary-card {
+  flex: 1; min-width: 180px; background: var(--best-bg); border-radius: 10px;
+  padding: 1rem 1.2rem;
+}
+.summary-card .label { font-size: 0.8rem; color: var(--muted); margin-bottom: 0.3rem; }
+.summary-card .value { font-size: 1.4rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+.summary-card .sub { font-size: 0.78rem; color: var(--muted); margin-top: 0.2rem; }
+
+table.compare { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+table.compare th, table.compare td {
+  padding: 0.55rem 0.5rem; text-align: right; border-bottom: 1px solid var(--line); vertical-align: top;
+}
+table.compare th:first-child, table.compare td:first-child { text-align: left; }
+table.compare thead th { color: var(--muted); font-weight: 500; font-size: 0.78rem; }
+table.compare td.num { font-variant-numeric: tabular-nums; }
+tr.best td { font-weight: 700; }
+tr.best { background: var(--best-bg); }
+tr.na td { color: var(--muted); }
+
+.disclaimer { font-size: 0.78rem; color: var(--muted); margin-top: 1rem; }
+
+.share-row { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.1rem; }
+.share-btn {
+  display: inline-flex; align-items: center; padding: 0.5rem 1rem; border-radius: 999px;
+  color: #fff; text-decoration: none; font-size: 0.82rem; font-weight: 700;
+}
+.share-btn:hover { opacity: 0.85; }
+.share-x { background: #000; }
+.share-line { background: #06c755; }
+.share-fb { background: #1877f2; }
+.share-hatena { background: #00a4de; }
+
+.ad-slot { margin: 2.5rem 0; text-align: center; min-height: 100px; }
+
+.pr-box {
+  border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 10px;
+  padding: 1.2rem 1.3rem; margin: 2.5rem 0; background: var(--best-bg);
+}
+.pr-box .pr-label {
+  display: inline-flex; align-items: center; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.04em;
+  color: #fff; background: var(--accent); border-radius: 999px;
+  padding: 0.2rem 0.7rem; margin-bottom: 0.8rem;
+}
+.pr-box p.pr-lede { color: var(--ink); font-size: 0.92rem; margin: 0 0 1rem; max-width: none; line-height: 1.7; }
+.pr-box .pr-banner { text-align: center; }
+
+.contact-box textarea {
+  width: 100%; min-height: 6rem; font-family: inherit; font-size: 0.92rem;
+  padding: 0.7rem; border: 1px solid var(--line); border-radius: 6px; background: var(--bg); color: var(--ink);
+  resize: vertical; margin-bottom: 0.6rem;
+}
+.contact-box input[type="email"] {
+  width: 100%; font-family: inherit; font-size: 0.92rem;
+  padding: 0.6rem 0.7rem; border: 1px solid var(--line); border-radius: 6px; background: var(--bg); color: var(--ink);
+  margin-bottom: 0.6rem;
+}
+.contact-box textarea:focus, .contact-box input:focus { outline: none; border-color: var(--accent); }
+.contact-box button {
+  font-family: inherit; font-weight: 700; font-size: 0.9rem; padding: 0.6rem 1.4rem;
+  border: none; border-radius: 6px; background: var(--accent); color: #fff; cursor: pointer;
+}
+.contact-box button:disabled { opacity: 0.5; cursor: not-allowed; }
+.contact-status { font-size: 0.85rem; margin-top: 0.6rem; }
+.contact-status.ok { color: var(--accent); }
+.contact-status.err { color: #b91c1c; }
+
+footer.site-footer {
+  margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--line);
+  font-size: 0.78rem; color: var(--muted);
+}
+footer.site-footer p { margin: 0 0 0.5rem; }
+footer.site-footer a { color: var(--accent); }
+
+.faq-item { border-bottom: 1px solid var(--line); padding: 0.9rem 0; }
+.faq-item:last-child { border-bottom: none; }
+.faq-item summary {
+  cursor: pointer; font-weight: 700; font-size: 0.92rem; list-style: none;
+  position: relative; padding-right: 1.6rem;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: '+'; position: absolute; right: 0; top: 0; color: var(--accent); font-weight: 700; font-size: 1.1rem;
+}
+.faq-item[open] summary::after { content: '−'; }
+.faq-item p { margin: 0.7rem 0 0; color: var(--muted); font-size: 0.88rem; }
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="masthead">
+    <h1>給与の社会保険料 内訳計算ツール</h1>
+    <p class="lede">額面月収を入れるだけで、給与明細で天引きされている健康保険料・厚生年金保険料・雇用保険料の内訳をまとめて計算します。「なぜこんなに引かれるの?」の疑問にお答えします。</p>
+    <span class="updated-note">計算式 最終確認日: 2026年9月20日（協会けんぽ東京都・令和8年度の保険料率を使用）</span>
+  </header>
+
+  <div class="notice-box">
+    ⚠️ 協会けんぽの健康保険料率は都道府県ごとに異なります（本ツールは東京都の令和8年度料率）。勤務先が健康保険組合（組合健保）に加入している場合は料率が異なります。正確な金額は給与明細でご確認ください。
+  </div>
+
+  <section>
+    <h2>額面月収から内訳を計算</h2>
+    <div class="field-row">
+      <div class="field">
+        <label for="income">額面月収（円）</label>
+        <input type="number" id="income" min="0" step="1000" value="250000">
+      </div>
+      <div class="field">
+        <label for="ageGroup">年齢区分</label>
+        <select id="ageGroup">
+          <option value="under40">40歳未満</option>
+          <option value="over40">40歳以上65歳未満（介護保険料あり）</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="summary-cards" id="summaryCards"></div>
+
+    <div style="overflow-x:auto">
+      <table class="compare">
+        <thead>
+          <tr><th>項目</th><th class="num">月額</th><th class="num">年額目安</th></tr>
+        </thead>
+        <tbody id="resultBody"></tbody>
+      </table>
+    </div>
+    <p class="disclaimer">健康保険料率9.85%・介護保険料率1.62%（いずれも会社と折半した本人負担分）、厚生年金保険料率18.3%（同折半）、雇用保険料率0.5%（令和8年度・一般の事業の労働者負担分）で計算しています。厚生年金保険料は標準報酬月額65万円を上限に頭打ちになりますが、本ツールは簡易計算のためこの上限は反映していません。実際の金額は給与明細でご確認ください。</p>
+    <div class="share-row" id="shareRow">
+      <a class="share-btn share-x" id="shareX" href="#" target="_blank" rel="noopener">𝕏でシェア</a>
+      <a class="share-btn share-line" id="shareLine" href="#" target="_blank" rel="noopener">LINEで送る</a>
+      <a class="share-btn share-fb" id="shareFb" href="#" target="_blank" rel="noopener">Facebookでシェア</a>
+      <a class="share-btn share-hatena" id="shareHatena" href="#" target="_blank" rel="noopener">はてブする</a>
+    </div>
+  </section>
+
+  <div class="ad-slot">
+    <ins class="adsbygoogle"
+      style="display:block"
+      data-ad-client="ca-pub-2370765779014113"
+      data-ad-slot="3021985784"
+      data-ad-format="auto"
+      data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+
+  <div class="pr-box">
+    <span class="pr-label">PR</span>
+    <p class="pr-lede">給与から天引きされている金額を知ったら、日々の支払いの還元率も見直してみませんか。年会費無料で貯まりやすいカードなら、実質的な手取りアップにつながります。</p>
+    <div class="pr-banner">
+      <script type='text/javascript' src='https://ad-verification.a8.net/ad/js/brandsafe.js'></script>
+      <div id='div_admane_async_1734_658_2972'>
+      <script type='text/javascript'>
+      <!--
+      brandsafe_js_async('//ad-verification.a8.net/ad', '_site=1734&_article=658&_link=2972&_image=3219&_ns=1&sad=s00000015110002', '260907514413', '4BC5IY+6TW2E2+38L8+BXYE9');
+      //-->
+      </script>
+      </div>
+      <img border="0" width="1" height="1" src="https://www13.a8.net/0.gif?a8mat=4BC5IY+6TW2E2+38L8+BXYE9" alt="">
+    </div>
+  </div>
+
+  <section>
+    <h2>よくある質問</h2>
+    <details class="faq-item">
+      <summary>なぜ健康保険料・厚生年金保険料は会社と折半なんですか？</summary>
+      <p>健康保険と厚生年金は、会社（事業主）と従業員が保険料を半分ずつ負担する「労使折半」という仕組みになっています。給与明細に書かれている金額は、あくまで従業員本人が負担する半分の金額です。同額を会社側も負担しています。</p>
+    </details>
+    <details class="faq-item">
+      <summary>都道府県によって金額は違いますか？</summary>
+      <p>協会けんぽの健康保険料率は都道府県ごとに異なります。本ツールは東京都の令和8年度の料率（9.85%）を使用しています。勤務先が加入している健康保険組合（組合健保）の場合は、料率がこれと異なることがあります。正確な料率は給与明細や勤務先の担当部署でご確認ください。</p>
+    </details>
+    <details class="faq-item">
+      <summary>40歳になると何が変わりますか？</summary>
+      <p>40歳になると「介護保険第2号被保険者」として介護保険料の負担が新たに加わります（65歳になるまで）。本ツールで年齢区分を「40歳以上65歳未満」に切り替えると、介護保険料を含めた内訳が確認できます。</p>
+    </details>
+    <details class="faq-item">
+      <summary>雇用保険料はボーナス（賞与）にもかかりますか？</summary>
+      <p>はい。雇用保険料は毎月の給与だけでなく、賞与（ボーナス）にも同じ料率がかかります。健康保険料・厚生年金保険料のように上限額（標準報酬月額の上限）が設定されていないのも特徴です。</p>
+    </details>
+    <details class="faq-item">
+      <summary>厚生年金保険料に上限はありますか？</summary>
+      <p>はい。厚生年金保険料は「標準報酬月額」が65万円を上限として計算されるため、月収がそれ以上になっても保険料はそれ以上増えません。本ツールは簡易計算のため、この上限（標準報酬月額の区分表）までは反映していません。目安としてご利用ください。</p>
+    </details>
+    <details class="faq-item">
+      <summary>学生アルバイトでも社会保険料は天引きされますか？</summary>
+      <p>勤務先の従業員数や労働時間・雇用期間などの加入要件を満たす場合は、アルバイトでも社会保険（健康保険・厚生年金）や雇用保険への加入・保険料の天引きが発生します。扶養の範囲内で働きたい場合の年収の目安は「扶養の壁チェッカー」もあわせてご確認ください。</p>
+    </details>
+  </section>
+
+  <section class="contact-box">
+    <h2>ご意見・追加してほしい機能</h2>
+    <p class="lede" style="margin-bottom:0.9rem;">気づいたことや、あったら便利な機能があれば教えてください。</p>
+    <form id="contactForm">
+      <input type="email" id="contactEmail" placeholder="返信が必要な場合はメールアドレス（任意）">
+      <textarea id="contactMessage" placeholder="ご意見・ご要望をどうぞ" required></textarea>
+      <button type="submit" id="contactSubmit">送信する</button>
+      <p class="contact-status" id="contactStatus"></p>
+    </form>
+  </section>
+
+  <footer class="site-footer">
+    <p>本ツールの金額は概算率にもとづく簡易計算であり、正確性を保証するものではありません。厚生年金保険料の標準報酬月額の上限（頭打ち）は考慮していません。正確な金額は給与明細や勤務先の給与担当にご確認ください。</p>
+    <p>あわせて使える：
+      <a href="https://webtools-labs.com/furima-hikaku-keisan/">フリマ手数料計算・比較ツール</a> ／
+      <a href="https://webtools-labs.com/furima-hasso-hikaku/">フリマ配送方法・送料比較ツール</a> ／
+      <a href="https://webtools-labs.com/furima-tedori-simulator/">フリマ手取りシミュレーター</a> ／
+      <a href="https://webtools-labs.com/yukyu-hiyou-keisan/">有給休暇 付与日数計算ツール</a> ／
+      <a href="https://webtools-labs.com/revolving-risoku-keisan/">リボ払い・分割払い 実質利息計算ツール</a> ／
+      <a href="https://webtools-labs.com/taishoku-yukyu-keisan/">退職時の有給消化シミュレーター</a> ／
+      <a href="https://webtools-labs.com/fuyou-no-kabe-keisan/">扶養の壁チェッカー</a> ／
+      <a href="https://webtools-labs.com/tedori-keisan/">手取り計算ツール</a> ／
+      <a href="https://webtools-labs.com/taishokukin-zei-keisan/">退職金の税金計算ツール</a> ／
+      <a href="https://webtools-labs.com/sankyu-ikuji-teate-keisan/">産休・育休手当金シミュレーター</a> ／
+      <a href="https://webtools-labs.com/zangyodai-keisan/">残業代計算ツール</a> ／
+      <a href="https://webtools-labs.com/shitsugyo-hoken-keisan/">失業保険（基本手当）シミュレーター</a> ／
+      <a href="https://webtools-labs.com/jikyu-nenshu-keisan/">時給から年収・月収を計算</a> ／
+      <a href="https://webtools-labs.com/yubin-kitte-keisan/">郵便物の切手代早見表</a> ／
+      <a href="https://webtools-labs.com/bonus-tedori-keisan/">賞与手取り計算ツール</a> ／
+      <a href="https://webtools-labs.com/shoubyou-teate-keisan/">傷病手当金計算ツール</a> ／
+      <a href="https://webtools-labs.com/juminzei-keisan/">住民税計算ツール</a> ／
+      <a href="https://webtools-labs.com/tsukin-teate-keisan/">通勤手当の非課税限度額計算ツール</a> ／
+      <a href="https://webtools-labs.com/tedori-gyakusan-keisan/">手取りから逆算する年収計算ツール</a>
+    </p>
+    <p>当サイトは広告を掲載する場合があります。</p>
+    <p><a href="https://webtools-labs.com/about/">運営者情報</a> ／ <a href="https://webtools-labs.com/privacy/">プライバシーポリシー</a></p>
+  </footer>
+</div>
+
+<script>
+(function () {
+  function yen(n) { return Math.round(n).toLocaleString('ja-JP') + '円'; }
+
+  var KENKO_EMPLOYEE_RATE = 0.04925;   // 協会けんぽ東京都 令和8年度 9.85% の本人負担分(折半)
+  var KAIGO_EMPLOYEE_RATE = 0.0081;    // 介護保険料率 令和8年度 1.62% の本人負担分(折半)
+  var KOSEI_NENKIN_EMPLOYEE_RATE = 0.0915; // 厚生年金保険料率 18.3%(平成29年9月分〜変更なし)の本人負担分(折半)
+  var KOYOU_HOKEN_EMPLOYEE_RATE = 0.005;   // 雇用保険料率 令和8年度 一般の事業の労働者負担分
+
+  function calc(income, ageGroup) {
+    var kenko = Math.round(income * KENKO_EMPLOYEE_RATE);
+    var kaigo = ageGroup === 'over40' ? Math.round(income * KAIGO_EMPLOYEE_RATE) : 0;
+    var koseiNenkin = Math.round(income * KOSEI_NENKIN_EMPLOYEE_RATE);
+    var koyouHoken = Math.round(income * KOYOU_HOKEN_EMPLOYEE_RATE);
+    var total = kenko + kaigo + koseiNenkin + koyouHoken;
+    return { income: income, kenko: kenko, kaigo: kaigo, koseiNenkin: koseiNenkin, koyouHoken: koyouHoken, total: total };
+  }
+
+  var incomeInput = document.getElementById('income');
+  var ageGroupSelect = document.getElementById('ageGroup');
+  var summaryCards = document.getElementById('summaryCards');
+  var resultBody = document.getElementById('resultBody');
+  var shareX = document.getElementById('shareX');
+  var shareLine = document.getElementById('shareLine');
+  var shareFb = document.getElementById('shareFb');
+  var shareHatena = document.getElementById('shareHatena');
+
+  function setShareLinks(text, url) {
+    shareX.href = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(text) + '&url=' + encodeURIComponent(url);
+    shareLine.href = 'https://line.me/R/msg/text/?' + encodeURIComponent(text + '\n' + url);
+    shareFb.href = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url) + '&quote=' + encodeURIComponent(text);
+    shareHatena.href = 'https://b.hatena.ne.jp/entry/panel/?url=' + encodeURIComponent(url) + '&title=' + encodeURIComponent(text);
+  }
+
+  function render() {
+    var income = Math.max(0, Number(incomeInput.value) || 0);
+    var ageGroup = ageGroupSelect.value;
+    var r = calc(income, ageGroup);
+
+    summaryCards.innerHTML =
+      '<div class="summary-card"><div class="label">社会保険料 合計（月額）</div><div class="value">' + yen(r.total) + '</div><div class="sub">額面月収 ' + yen(r.income) + ' の場合</div></div>' +
+      '<div class="summary-card"><div class="label">天引き後の目安（月額）</div><div class="value">' + yen(r.income - r.total) + '</div><div class="sub">ここから所得税・住民税もさらに引かれます</div></div>';
+
+    var rows = [
+      ['健康保険料（本人負担分）', yen(r.kenko), yen(r.kenko * 12)],
+      ageGroup === 'over40'
+        ? ['介護保険料（本人負担分）', yen(r.kaigo), yen(r.kaigo * 12)]
+        : ['介護保険料', '対象外（40歳未満）', '－'],
+      ['厚生年金保険料（本人負担分）', yen(r.koseiNenkin), yen(r.koseiNenkin * 12)],
+      ['雇用保険料（本人負担分）', yen(r.koyouHoken), yen(r.koyouHoken * 12)],
+      ['社会保険料 合計', yen(r.total), yen(r.total * 12)]
+    ];
+    resultBody.innerHTML = rows.map(function (row, i) {
+      var isLast = i === rows.length - 1;
+      var isNa = row[1].indexOf('対象外') === 0;
+      return '<tr class="' + (isLast ? 'best' : (isNa ? 'na' : '')) + '"><td>' + row[0] + '</td><td class="num">' + row[1] + '</td><td class="num">' + row[2] + '</td></tr>';
+    }).join('');
+
+    var shareText = '額面月収' + yen(r.income) + 'の社会保険料天引き額は合計' + yen(r.total) + 'でした\n(健康保険' + yen(r.kenko) + '・厚生年金' + yen(r.koseiNenkin) + '・雇用保険' + yen(r.koyouHoken) + ')\n\n給与の社会保険料 内訳計算ツール';
+    setShareLinks(shareText, 'https://webtools-labs.com/shakaihoken-uchiwake-keisan/');
+  }
+
+  incomeInput.addEventListener('input', render);
+  ageGroupSelect.addEventListener('change', render);
+
+  render();
+
+  var WEB3FORMS_ACCESS_KEY = '4551c9fd-4327-4bd4-97e0-8b93d85fd077';
+  var contactForm = document.getElementById('contactForm');
+  var contactStatus = document.getElementById('contactStatus');
+  var contactSubmit = document.getElementById('contactSubmit');
+
+  contactForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    contactSubmit.disabled = true;
+    contactStatus.textContent = '送信中...';
+    contactStatus.className = 'contact-status';
+
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        access_key: WEB3FORMS_ACCESS_KEY,
+        subject: '社会保険料内訳計算ツールへのお問い合わせ',
+        email: document.getElementById('contactEmail').value || 'noreply@example.com',
+        message: document.getElementById('contactMessage').value
+      })
+    }).then(function (res) { return res.json(); }).then(function (data) {
+      contactSubmit.disabled = false;
+      if (data.success) {
+        contactStatus.textContent = '送信しました。ありがとうございます！';
+        contactStatus.className = 'contact-status ok';
+        contactForm.reset();
+      } else {
+        contactStatus.textContent = '送信に失敗しました。時間をおいて再度お試しください。';
+        contactStatus.className = 'contact-status err';
+      }
+    }).catch(function () {
+      contactSubmit.disabled = false;
+      contactStatus.textContent = '送信に失敗しました。時間をおいて再度お試しください。';
+      contactStatus.className = 'contact-status err';
+    });
+  });
+})();
+</script>
+</body>
+</html>
