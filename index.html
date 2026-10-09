@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>給与の社会保険料 内訳計算ツール</title>
-<meta name="description" content="額面月収を入れるだけで、給与から天引きされる健康保険料・厚生年金保険料・雇用保険料の内訳をまとめて計算できる無料ツールです。「なぜこんなに引かれるの?」がひと目でわかります。">
+<title>社会保険料の内訳計算ツール｜健康保険・厚生年金・雇用保険・子育て支援金【令和8年度】</title>
+<meta name="description" content="額面月収を入れるだけで、給与から天引きされる健康保険料・厚生年金保険料・雇用保険料に加え、2026年4月分から始まった子ども・子育て支援金の内訳までまとめて計算できる無料ツールです。「なぜこんなに引かれるの?」がひと目でわかります。">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://webtools-labs.com/shakaihoken-uchiwake-keisan/">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2370765779014113" crossorigin="anonymous"></script>
@@ -32,13 +32,13 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="webtools-labs">
 <meta property="og:title" content="給与の社会保険料 内訳計算ツール">
-<meta property="og:description" content="額面月収を入れるだけで、健康保険料・厚生年金保険料・雇用保険料の内訳をまとめて計算できます。">
+<meta property="og:description" content="額面月収を入れるだけで、健康保険料・厚生年金保険料・雇用保険料・子ども・子育て支援金の内訳をまとめて計算できます。">
 <meta property="og:url" content="https://webtools-labs.com/shakaihoken-uchiwake-keisan/">
 <meta property="og:image" content="https://webtools-labs.com/shakaihoken-uchiwake-keisan/og-image.png">
 <meta property="og:locale" content="ja_JP">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="給与の社会保険料 内訳計算ツール">
-<meta name="twitter:description" content="額面月収から健康保険・厚生年金・雇用保険の天引き額の内訳をすぐ計算できる無料ツール。">
+<meta name="twitter:description" content="額面月収から健康保険・厚生年金・雇用保険・子育て支援金の天引き額の内訳をすぐ計算できる無料ツール。">
 <meta name="twitter:image" content="https://webtools-labs.com/shakaihoken-uchiwake-keisan/og-image.png">
 
 <script type="application/ld+json">
@@ -49,7 +49,7 @@
   "url": "https://webtools-labs.com/shakaihoken-uchiwake-keisan/",
   "applicationCategory": "UtilitiesApplication",
   "operatingSystem": "Any",
-  "description": "額面月収を入れるだけで、健康保険料・厚生年金保険料・雇用保険料の内訳をまとめて計算できる無料ツール。",
+  "description": "額面月収を入れるだけで、健康保険料・厚生年金保険料・雇用保険料・子ども・子育て支援金の内訳をまとめて計算できる無料ツール。",
   "offers": { "@type": "Offer", "price": "0", "priceCurrency": "JPY" },
   "inLanguage": "ja"
 }
@@ -82,7 +82,17 @@
     {
       "@type": "Question",
       "name": "厚生年金保険料に上限はありますか？",
-      "acceptedAnswer": { "@type": "Answer", "text": "はい。厚生年金保険料は「標準報酬月額」が65万円を上限として計算されるため、月収がそれ以上になっても保険料はそれ以上増えません。本ツールは簡易計算のため、この上限(標準報酬月額の区分表)までは反映していません。目安としてご利用ください。" }
+      "acceptedAnswer": { "@type": "Answer", "text": "はい。厚生年金保険料は「標準報酬月額」が65万円を上限として計算されるため、月収が63.5万円以上になっても保険料は月59,475円(本人負担分)から増えません。本ツールもこの上限を反映しています。" }
+    },
+    {
+      "@type": "Question",
+      "name": "給与明細の「子ども・子育て支援金」とは何ですか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "少子化対策の財源として、2026年4月分の保険料から医療保険料とあわせて徴収されるようになったものです。会社員の場合、令和8年度の支援金率は0.23%で、会社と折半するため本人負担は標準報酬月額の0.115%です(月収30万円なら約345円)。健康保険料と同じく賞与(ボーナス)からも差し引かれます。給与明細では健康保険料に含めて表示されることも、別の行で表示されることもあります。" }
+    },
+    {
+      "@type": "Question",
+      "name": "社会保険料は額面の何％くらいですか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "令和8年度・協会けんぽ東京都の場合、40歳未満は健康保険4.925%+厚生年金9.15%+雇用保険0.5%+子育て支援金0.115%で約14.7%、40歳以上65歳未満は介護保険0.81%が加わって約15.5%です。月収30万円なら40歳未満で約4.4万円、40歳以上で約4.6万円が天引きされる計算です。" }
     },
     {
       "@type": "Question",
@@ -250,8 +260,8 @@ footer.site-footer a { color: var(--accent); }
   <nav class="breadcrumb" aria-label="パンくずリスト"><a href="https://webtools-labs.com/">ホーム</a> / 給与の社会保険料 内訳計算ツール</nav>
   <header class="masthead">
     <h1>給与の社会保険料 内訳計算ツール</h1>
-    <p class="lede">額面月収を入れるだけで、給与明細で天引きされている健康保険料・厚生年金保険料・雇用保険料の内訳をまとめて計算します。「なぜこんなに引かれるの?」の疑問にお答えします。</p>
-    <span class="updated-note">計算式 最終確認日: 2026年9月20日（協会けんぽ東京都・令和8年度の保険料率を使用）</span>
+    <p class="lede">額面月収を入れるだけで、給与明細で天引きされている健康保険料・厚生年金保険料・雇用保険料、2026年4月分から加わった子ども・子育て支援金の内訳をまとめて計算します。「なぜこんなに引かれるの?」の疑問にお答えします。</p>
+    <span class="updated-note">計算式 最終確認日: 2026年10月9日（協会けんぽ東京都・令和8年度の保険料率を使用）</span>
     <p class="ad-disclosure" style="font-size:0.75rem;opacity:0.7;margin:0.5rem 0 0;">※当サイトはアフィリエイト広告（PR）を利用しています。</p>
   </header>
 
@@ -285,7 +295,7 @@ footer.site-footer a { color: var(--accent); }
         <tbody id="resultBody"></tbody>
       </table>
     </div>
-    <p class="disclaimer">健康保険料率9.85%・介護保険料率1.62%（いずれも会社と折半した本人負担分）、厚生年金保険料率18.3%（同折半）、雇用保険料率0.5%（令和8年度・一般の事業の労働者負担分）で計算しています。厚生年金保険料は標準報酬月額65万円を上限に頭打ちになりますが、本ツールは簡易計算のためこの上限は反映していません。実際の金額は給与明細でご確認ください。</p>
+    <p class="disclaimer">健康保険料率9.85%・介護保険料率1.62%（いずれも会社と折半した本人負担分）、厚生年金保険料率18.3%（同折半）、雇用保険料率0.5%（令和8年度・一般の事業の労働者負担分）、子ども・子育て支援金率0.23%（同折半、2026年4月分〜）で計算しています。厚生年金保険料は標準報酬月額65万円を上限としています。実際の保険料は月収そのものではなく標準報酬月額（等級）に料率をかけて決まるため、数百円程度ずれることがあります。正確な金額は給与明細でご確認ください。</p>
     <div class="share-row" id="shareRow">
       <a class="share-btn share-x" id="shareX" href="#" target="_blank" rel="noopener">𝕏でシェア</a>
       <a class="share-btn share-line" id="shareLine" href="#" target="_blank" rel="noopener">LINEで送る</a>
@@ -340,7 +350,15 @@ footer.site-footer a { color: var(--accent); }
     </details>
     <details class="faq-item">
       <summary>厚生年金保険料に上限はありますか？</summary>
-      <p>はい。厚生年金保険料は「標準報酬月額」が65万円を上限として計算されるため、月収がそれ以上になっても保険料はそれ以上増えません。本ツールは簡易計算のため、この上限（標準報酬月額の区分表）までは反映していません。目安としてご利用ください。</p>
+      <p>はい。厚生年金保険料は「標準報酬月額」が65万円を上限として計算されるため、月収が63.5万円以上になっても保険料は月59,475円（本人負担分）から増えません。本ツールもこの上限を反映しています。</p>
+    </details>
+    <details class="faq-item">
+      <summary>給与明細の「子ども・子育て支援金」とは何ですか？</summary>
+      <p>少子化対策の財源として、2026年4月分の保険料から医療保険料とあわせて徴収されるようになったものです。会社員の場合、令和8年度の支援金率は0.23%で、会社と折半するため本人負担は標準報酬月額の0.115%です（月収30万円なら約345円）。健康保険料と同じく賞与（ボーナス）からも差し引かれます。給与明細では健康保険料に含めて表示されることも、別の行で表示されることもあります。</p>
+    </details>
+    <details class="faq-item">
+      <summary>社会保険料は額面の何％くらいですか？</summary>
+      <p>令和8年度・協会けんぽ東京都の場合、40歳未満は健康保険4.925%＋厚生年金9.15%＋雇用保険0.5%＋子育て支援金0.115%で約14.7%、40歳以上65歳未満は介護保険0.81%が加わって約15.5%です。月収30万円なら40歳未満で約4.4万円、40歳以上で約4.6万円が天引きされる計算です。</p>
     </details>
     <details class="faq-item">
       <summary>学生アルバイトでも社会保険料は天引きされますか？</summary>
@@ -408,14 +426,18 @@ footer.site-footer a { color: var(--accent); }
   var KAIGO_EMPLOYEE_RATE = 0.0081;    // 介護保険料率 令和8年度 1.62% の本人負担分(折半)
   var KOSEI_NENKIN_EMPLOYEE_RATE = 0.0915; // 厚生年金保険料率 18.3%(平成29年9月分〜変更なし)の本人負担分(折半)
   var KOYOU_HOKEN_EMPLOYEE_RATE = 0.005;   // 雇用保険料率 令和8年度 一般の事業の労働者負担分
+  var SHIENKIN_EMPLOYEE_RATE = 0.00115;    // 子ども・子育て支援金率 令和8年度 0.23% の本人負担分(折半)、2026年4月分から
+  var NENKIN_CAP = 650000;                 // 厚生年金の標準報酬月額の上限(月収63.5万円以上は65万円)
 
   function calc(income, ageGroup) {
     var kenko = Math.round(income * KENKO_EMPLOYEE_RATE);
     var kaigo = ageGroup === 'over40' ? Math.round(income * KAIGO_EMPLOYEE_RATE) : 0;
-    var koseiNenkin = Math.round(income * KOSEI_NENKIN_EMPLOYEE_RATE);
+    var nenkinBase = income >= 635000 ? NENKIN_CAP : income;
+    var koseiNenkin = Math.round(nenkinBase * KOSEI_NENKIN_EMPLOYEE_RATE);
     var koyouHoken = Math.round(income * KOYOU_HOKEN_EMPLOYEE_RATE);
-    var total = kenko + kaigo + koseiNenkin + koyouHoken;
-    return { income: income, kenko: kenko, kaigo: kaigo, koseiNenkin: koseiNenkin, koyouHoken: koyouHoken, total: total };
+    var shienkin = Math.round(income * SHIENKIN_EMPLOYEE_RATE);
+    var total = kenko + kaigo + koseiNenkin + koyouHoken + shienkin;
+    return { income: income, kenko: kenko, kaigo: kaigo, koseiNenkin: koseiNenkin, koyouHoken: koyouHoken, shienkin: shienkin, capped: nenkinBase !== income, total: total };
   }
 
   var incomeInput = document.getElementById('income');
@@ -448,8 +470,9 @@ footer.site-footer a { color: var(--accent); }
       ageGroup === 'over40'
         ? ['介護保険料（本人負担分）', yen(r.kaigo), yen(r.kaigo * 12)]
         : ['介護保険料', '対象外（40歳未満）', '－'],
-      ['厚生年金保険料（本人負担分）', yen(r.koseiNenkin), yen(r.koseiNenkin * 12)],
+      [r.capped ? '厚生年金保険料（本人負担分・上限適用）' : '厚生年金保険料（本人負担分）', yen(r.koseiNenkin), yen(r.koseiNenkin * 12)],
       ['雇用保険料（本人負担分）', yen(r.koyouHoken), yen(r.koyouHoken * 12)],
+      ['子ども・子育て支援金（本人負担分）', yen(r.shienkin), yen(r.shienkin * 12)],
       ['社会保険料 合計', yen(r.total), yen(r.total * 12)]
     ];
     resultBody.innerHTML = rows.map(function (row, i) {
@@ -458,7 +481,7 @@ footer.site-footer a { color: var(--accent); }
       return '<tr class="' + (isLast ? 'best' : (isNa ? 'na' : '')) + '"><td>' + row[0] + '</td><td class="num">' + row[1] + '</td><td class="num">' + row[2] + '</td></tr>';
     }).join('');
 
-    var shareText = '額面月収' + yen(r.income) + 'の社会保険料天引き額は合計' + yen(r.total) + 'でした\n(健康保険' + yen(r.kenko) + '・厚生年金' + yen(r.koseiNenkin) + '・雇用保険' + yen(r.koyouHoken) + ')\n\n給与の社会保険料 内訳計算ツール';
+    var shareText = '額面月収' + yen(r.income) + 'の社会保険料天引き額は合計' + yen(r.total) + 'でした\n(健康保険' + yen(r.kenko) + '・厚生年金' + yen(r.koseiNenkin) + '・雇用保険' + yen(r.koyouHoken) + '・子育て支援金' + yen(r.shienkin) + ')\n\n給与の社会保険料 内訳計算ツール';
     setShareLinks(shareText, 'https://webtools-labs.com/shakaihoken-uchiwake-keisan/');
   }
 
