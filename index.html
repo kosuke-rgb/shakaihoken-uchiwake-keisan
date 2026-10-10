@@ -261,7 +261,7 @@ footer.site-footer a { color: var(--accent); }
   <header class="masthead">
     <h1>給与の社会保険料 内訳計算ツール</h1>
     <p class="lede">額面月収を入れるだけで、給与明細で天引きされている健康保険料・厚生年金保険料・雇用保険料、2026年4月分から加わった子ども・子育て支援金の内訳をまとめて計算します。「なぜこんなに引かれるの?」の疑問にお答えします。</p>
-    <span class="updated-note">計算式 最終確認日: 2026年10月9日（協会けんぽ東京都・令和8年度の保険料率を使用）</span>
+    <span class="updated-note">計算式 最終確認日: 2026年10月10日（協会けんぽ東京都・令和8年度の保険料率を使用）</span>
     <p class="ad-disclosure" style="font-size:0.75rem;opacity:0.7;margin:0.5rem 0 0;">※当サイトはアフィリエイト広告（PR）を利用しています。</p>
   </header>
 
@@ -302,6 +302,40 @@ footer.site-footer a { color: var(--accent); }
       <a class="share-btn share-fb" id="shareFb" href="#" target="_blank" rel="noopener">Facebookでシェア</a>
       <a class="share-btn share-hatena" id="shareHatena" href="#" target="_blank" rel="noopener">はてブする</a>
     </div>
+  </section>
+
+  <section>
+    <h2>月収別 社会保険料の早見表（令和8年度・東京都）</h2>
+    <p>額面月収ごとに、毎月の給与から天引きされる社会保険料（本人負担分）の目安を並べました。40歳未満なら額面のおよそ14.7%、40〜64歳は介護保険料が加わっておよそ15.5%です。</p>
+    <div class="ref-table" style="overflow-x:auto">
+      <table style="white-space:nowrap">
+        <thead><tr><th>額面月収</th><th class="num">健康保険</th><th class="num">厚生年金</th><th class="num">雇用保険</th><th class="num">子育て支援金</th><th class="num">合計（40歳未満）</th><th class="num">合計（40〜64歳）</th></tr></thead>
+        <tbody>
+          <tr><td>15万円</td><td class="num">7,388円</td><td class="num">13,725円</td><td class="num">750円</td><td class="num">173円</td><td class="num"><strong>22,036円</strong></td><td class="num">23,251円</td></tr>
+          <tr><td>20万円</td><td class="num">9,850円</td><td class="num">18,300円</td><td class="num">1,000円</td><td class="num">230円</td><td class="num"><strong>29,380円</strong></td><td class="num">31,000円</td></tr>
+          <tr><td>25万円</td><td class="num">12,313円</td><td class="num">22,875円</td><td class="num">1,250円</td><td class="num">288円</td><td class="num"><strong>36,726円</strong></td><td class="num">38,751円</td></tr>
+          <tr><td>30万円</td><td class="num">14,775円</td><td class="num">27,450円</td><td class="num">1,500円</td><td class="num">345円</td><td class="num"><strong>44,070円</strong></td><td class="num">46,500円</td></tr>
+          <tr><td>35万円</td><td class="num">17,238円</td><td class="num">32,025円</td><td class="num">1,750円</td><td class="num">403円</td><td class="num"><strong>51,416円</strong></td><td class="num">54,251円</td></tr>
+          <tr><td>40万円</td><td class="num">19,700円</td><td class="num">36,600円</td><td class="num">2,000円</td><td class="num">460円</td><td class="num"><strong>58,760円</strong></td><td class="num">62,000円</td></tr>
+          <tr><td>50万円</td><td class="num">24,625円</td><td class="num">45,750円</td><td class="num">2,500円</td><td class="num">575円</td><td class="num"><strong>73,450円</strong></td><td class="num">77,500円</td></tr>
+          <tr><td>60万円</td><td class="num">29,550円</td><td class="num">54,900円</td><td class="num">3,000円</td><td class="num">690円</td><td class="num"><strong>88,140円</strong></td><td class="num">93,000円</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="disclaimer">上の計算フォームと同じ方法で計算した目安です（協会けんぽ東京都の健康保険料率9.85%、介護保険料率1.62%、厚生年金18.3%、雇用保険0.5%、子ども・子育て支援金0.23%。いずれも本人負担分）。実際の保険料は標準報酬月額（等級）で決まるため、数百円ずれることがあります。</p>
+  </section>
+
+  <section>
+    <h2>社会保険料の金額はどうやって決まる？</h2>
+    <p><strong>健康保険・厚生年金・介護保険・子ども・子育て支援金</strong>は、毎月の実際の給与ではなく「標準報酬月額」という区切りのよい金額に料率をかけて計算します。標準報酬月額は、原則として<strong>4月・5月・6月に支払われた給与の平均</strong>で決まり、その年の9月から翌年8月まで同じ金額が使われます（定時決定）。基本給だけでなく、残業代・通勤手当・各種手当も含まれるため、4〜6月に残業が多いと1年間の保険料が高くなることがあります。</p>
+    <p>昇給や降給で固定的な給与が変わり、3か月の平均が2等級以上変わった場合は、途中で標準報酬月額が見直されます（随時改定）。厚生年金の標準報酬月額は65万円が上限です。</p>
+    <p><strong>雇用保険</strong>だけは標準報酬月額を使わず、毎月実際に支払われた給与（残業代・通勤手当を含む）に料率をかけて計算します。そのため雇用保険料は毎月少しずつ変わることがあります。</p>
+  </section>
+
+  <section>
+    <h2>会社も同じだけ保険料を払っている</h2>
+    <p>健康保険・介護保険・厚生年金・子ども・子育て支援金は、会社と従業員が半分ずつ負担する「労使折半」です。たとえば月収30万円（40歳未満）なら、給与から天引きされる約4.4万円とほぼ同じ額を会社も負担しています。雇用保険は会社の負担割合の方が大きく、労災保険は全額会社負担です。</p>
+    <p>手取りを考えるときは、社会保険料のほかに所得税・住民税も引かれます。額面から手取りまでの全体は<a href="https://webtools-labs.com/tedori-keisan/">手取り計算ツール</a>、ボーナスの場合は<a href="https://webtools-labs.com/bonus-tedori-keisan/">賞与（ボーナス）手取り計算ツール</a>で確認できます。</p>
   </section>
 
   <div class="ad-slot">
