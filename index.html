@@ -283,6 +283,19 @@ footer.site-footer a { color: var(--accent); }
 .related-tools a { color: var(--accent); font-weight: 700; text-decoration: none; }
 .related-tools a:hover { text-decoration: underline; }
 .related-tools li p { margin: 0.25rem 0 0; color: var(--muted); font-size: 0.85rem; }
+.ref-table { overflow-x: auto; }
+.ref-table table { width: 100%; border-collapse: collapse; font-size: 0.86rem; min-width: 0; }
+.ref-table th, .ref-table td { padding: 0.5rem 0.5rem; border-bottom: 1px solid var(--line); text-align: left; }
+.ref-table td.num, .ref-table th.num { font-variant-numeric: tabular-nums; text-align: right; }
+/* スマホで表が画面からはみ出さないように（2026-11-17） */
+@media (max-width: 600px) {
+  .ref-table table { font-size: 0.8rem; }
+  .ref-table th, .ref-table td { padding: 0.45rem 0.3rem; }
+  .ref-table th, .ref-table td:first-child { white-space: normal; }
+  .ref-table td.nw { white-space: nowrap; }
+  .ref-table th:first-child, .ref-table td:first-child { min-width: 5em; position: sticky; left: 0; z-index: 1; background: var(--bg); box-shadow: 1px 0 0 var(--line); }
+  .ref-table tr.best td:first-child, .ref-table tr.total td:first-child, .ref-table tr.next td:first-child, .ref-table tr.highlight td:first-child { background: var(--best-bg, var(--bg)); }
+}
 </style>
 </head>
 <body>
@@ -358,14 +371,14 @@ footer.site-footer a { color: var(--accent); }
       <table style="white-space:nowrap">
         <thead><tr><th>額面月収</th><th class="num">健康保険</th><th class="num">厚生年金</th><th class="num">雇用保険</th><th class="num">子育て支援金</th><th class="num">合計（40歳未満）</th><th class="num">合計（40〜64歳）</th></tr></thead>
         <tbody>
-          <tr><td>15万円</td><td class="num">7,388円</td><td class="num">13,725円</td><td class="num">750円</td><td class="num">173円</td><td class="num"><strong>22,036円</strong></td><td class="num">23,251円</td></tr>
-          <tr><td>20万円</td><td class="num">9,850円</td><td class="num">18,300円</td><td class="num">1,000円</td><td class="num">230円</td><td class="num"><strong>29,380円</strong></td><td class="num">31,000円</td></tr>
-          <tr><td>25万円</td><td class="num">12,313円</td><td class="num">22,875円</td><td class="num">1,250円</td><td class="num">288円</td><td class="num"><strong>36,726円</strong></td><td class="num">38,751円</td></tr>
-          <tr><td>30万円</td><td class="num">14,775円</td><td class="num">27,450円</td><td class="num">1,500円</td><td class="num">345円</td><td class="num"><strong>44,070円</strong></td><td class="num">46,500円</td></tr>
-          <tr><td>35万円</td><td class="num">17,238円</td><td class="num">32,025円</td><td class="num">1,750円</td><td class="num">403円</td><td class="num"><strong>51,416円</strong></td><td class="num">54,251円</td></tr>
-          <tr><td>40万円</td><td class="num">19,700円</td><td class="num">36,600円</td><td class="num">2,000円</td><td class="num">460円</td><td class="num"><strong>58,760円</strong></td><td class="num">62,000円</td></tr>
-          <tr><td>50万円</td><td class="num">24,625円</td><td class="num">45,750円</td><td class="num">2,500円</td><td class="num">575円</td><td class="num"><strong>73,450円</strong></td><td class="num">77,500円</td></tr>
-          <tr><td>60万円</td><td class="num">29,550円</td><td class="num">54,900円</td><td class="num">3,000円</td><td class="num">690円</td><td class="num"><strong>88,140円</strong></td><td class="num">93,000円</td></tr>
+          <tr><td>15万円</td><td class="num nw">7,388円</td><td class="num nw">13,725円</td><td class="num nw">750円</td><td class="num nw">173円</td><td class="num"><strong>22,036円</strong></td><td class="num nw">23,251円</td></tr>
+          <tr><td>20万円</td><td class="num nw">9,850円</td><td class="num nw">18,300円</td><td class="num nw">1,000円</td><td class="num nw">230円</td><td class="num"><strong>29,380円</strong></td><td class="num nw">31,000円</td></tr>
+          <tr><td>25万円</td><td class="num nw">12,313円</td><td class="num nw">22,875円</td><td class="num nw">1,250円</td><td class="num nw">288円</td><td class="num"><strong>36,726円</strong></td><td class="num nw">38,751円</td></tr>
+          <tr><td>30万円</td><td class="num nw">14,775円</td><td class="num nw">27,450円</td><td class="num nw">1,500円</td><td class="num nw">345円</td><td class="num"><strong>44,070円</strong></td><td class="num nw">46,500円</td></tr>
+          <tr><td>35万円</td><td class="num nw">17,238円</td><td class="num nw">32,025円</td><td class="num nw">1,750円</td><td class="num nw">403円</td><td class="num"><strong>51,416円</strong></td><td class="num nw">54,251円</td></tr>
+          <tr><td>40万円</td><td class="num nw">19,700円</td><td class="num nw">36,600円</td><td class="num nw">2,000円</td><td class="num nw">460円</td><td class="num"><strong>58,760円</strong></td><td class="num nw">62,000円</td></tr>
+          <tr><td>50万円</td><td class="num nw">24,625円</td><td class="num nw">45,750円</td><td class="num nw">2,500円</td><td class="num nw">575円</td><td class="num"><strong>73,450円</strong></td><td class="num nw">77,500円</td></tr>
+          <tr><td>60万円</td><td class="num nw">29,550円</td><td class="num nw">54,900円</td><td class="num nw">3,000円</td><td class="num nw">690円</td><td class="num"><strong>88,140円</strong></td><td class="num nw">93,000円</td></tr>
         </tbody>
       </table>
     </div>
