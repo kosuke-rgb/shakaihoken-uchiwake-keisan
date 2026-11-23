@@ -296,6 +296,17 @@ footer.site-footer a { color: var(--accent); }
   .ref-table th:first-child, .ref-table td:first-child { min-width: 5em; position: sticky; left: 0; z-index: 1; background: var(--bg); box-shadow: 1px 0 0 var(--line); }
   .ref-table tr.best td:first-child, .ref-table tr.total td:first-child, .ref-table tr.next td:first-child, .ref-table tr.highlight td:first-child { background: var(--best-bg, var(--bg)); }
 }
+/* スマホでは横長の早見表をカード表示に（2026-11-23） */
+@media (max-width: 600px) {
+  .ref-table table.stack, .ref-table table.stack tbody, .ref-table table.stack tr, .ref-table table.stack td { display: block; width: auto; }
+  .ref-table table.stack thead { display: none; }
+  .ref-table table.stack tr { border: 1px solid var(--line); border-radius: 8px; margin: 0 0 0.6rem; padding: 0.35rem 0.7rem; }
+  .ref-table table.stack td { display: flex; justify-content: space-between; align-items: baseline; gap: 0.8rem; border: 0; padding: 0.22rem 0; text-align: right; position: static; box-shadow: none; min-width: 0; background: none; font-size: 0.86rem; white-space: normal; }
+  .ref-table table.stack td > span { text-align: right; white-space: nowrap; }
+  .ref-table table.stack td::before { content: attr(data-label); color: var(--muted); text-align: left; font-weight: 400; flex: 1 1 auto; }
+  .ref-table table.stack td:first-child { display: block; text-align: left; font-weight: 700; border-bottom: 1px solid var(--line); padding-bottom: 0.35rem; margin-bottom: 0.2rem; }
+  .ref-table table.stack td:first-child::before { content: none; }
+}
 </style>
 </head>
 <body>
@@ -368,17 +379,17 @@ footer.site-footer a { color: var(--accent); }
     <h2>月収別 社会保険料の早見表（令和8年度・東京都）</h2>
     <p>額面月収ごとに、毎月の給与から天引きされる社会保険料（本人負担分）の目安を並べました。40歳未満なら額面のおよそ14.7%、40〜64歳は介護保険料が加わっておよそ15.5%です。</p>
     <div class="ref-table" style="overflow-x:auto">
-      <table style="white-space:nowrap">
+      <table class="stack" style="white-space:nowrap">
         <thead><tr><th>額面月収</th><th class="num">健康保険</th><th class="num">厚生年金</th><th class="num">雇用保険</th><th class="num">子育て支援金</th><th class="num">合計（40歳未満）</th><th class="num">合計（40〜64歳）</th></tr></thead>
         <tbody>
-          <tr><td>15万円</td><td class="num nw">7,388円</td><td class="num nw">13,725円</td><td class="num nw">750円</td><td class="num nw">173円</td><td class="num"><strong>22,036円</strong></td><td class="num nw">23,251円</td></tr>
-          <tr><td>20万円</td><td class="num nw">9,850円</td><td class="num nw">18,300円</td><td class="num nw">1,000円</td><td class="num nw">230円</td><td class="num"><strong>29,380円</strong></td><td class="num nw">31,000円</td></tr>
-          <tr><td>25万円</td><td class="num nw">12,313円</td><td class="num nw">22,875円</td><td class="num nw">1,250円</td><td class="num nw">288円</td><td class="num"><strong>36,726円</strong></td><td class="num nw">38,751円</td></tr>
-          <tr><td>30万円</td><td class="num nw">14,775円</td><td class="num nw">27,450円</td><td class="num nw">1,500円</td><td class="num nw">345円</td><td class="num"><strong>44,070円</strong></td><td class="num nw">46,500円</td></tr>
-          <tr><td>35万円</td><td class="num nw">17,238円</td><td class="num nw">32,025円</td><td class="num nw">1,750円</td><td class="num nw">403円</td><td class="num"><strong>51,416円</strong></td><td class="num nw">54,251円</td></tr>
-          <tr><td>40万円</td><td class="num nw">19,700円</td><td class="num nw">36,600円</td><td class="num nw">2,000円</td><td class="num nw">460円</td><td class="num"><strong>58,760円</strong></td><td class="num nw">62,000円</td></tr>
-          <tr><td>50万円</td><td class="num nw">24,625円</td><td class="num nw">45,750円</td><td class="num nw">2,500円</td><td class="num nw">575円</td><td class="num"><strong>73,450円</strong></td><td class="num nw">77,500円</td></tr>
-          <tr><td>60万円</td><td class="num nw">29,550円</td><td class="num nw">54,900円</td><td class="num nw">3,000円</td><td class="num nw">690円</td><td class="num"><strong>88,140円</strong></td><td class="num nw">93,000円</td></tr>
+          <tr><td data-label="額面月収">15万円</td><td class="num nw" data-label="健康保険"><span>7,388円</span></td><td class="num nw" data-label="厚生年金"><span>13,725円</span></td><td class="num nw" data-label="雇用保険"><span>750円</span></td><td class="num nw" data-label="子育て支援金"><span>173円</span></td><td class="num" data-label="合計（40歳未満）"><span><strong>22,036円</strong></span></td><td class="num nw" data-label="合計（40〜64歳）"><span>23,251円</span></td></tr>
+          <tr><td data-label="額面月収">20万円</td><td class="num nw" data-label="健康保険"><span>9,850円</span></td><td class="num nw" data-label="厚生年金"><span>18,300円</span></td><td class="num nw" data-label="雇用保険"><span>1,000円</span></td><td class="num nw" data-label="子育て支援金"><span>230円</span></td><td class="num" data-label="合計（40歳未満）"><span><strong>29,380円</strong></span></td><td class="num nw" data-label="合計（40〜64歳）"><span>31,000円</span></td></tr>
+          <tr><td data-label="額面月収">25万円</td><td class="num nw" data-label="健康保険"><span>12,313円</span></td><td class="num nw" data-label="厚生年金"><span>22,875円</span></td><td class="num nw" data-label="雇用保険"><span>1,250円</span></td><td class="num nw" data-label="子育て支援金"><span>288円</span></td><td class="num" data-label="合計（40歳未満）"><span><strong>36,726円</strong></span></td><td class="num nw" data-label="合計（40〜64歳）"><span>38,751円</span></td></tr>
+          <tr><td data-label="額面月収">30万円</td><td class="num nw" data-label="健康保険"><span>14,775円</span></td><td class="num nw" data-label="厚生年金"><span>27,450円</span></td><td class="num nw" data-label="雇用保険"><span>1,500円</span></td><td class="num nw" data-label="子育て支援金"><span>345円</span></td><td class="num" data-label="合計（40歳未満）"><span><strong>44,070円</strong></span></td><td class="num nw" data-label="合計（40〜64歳）"><span>46,500円</span></td></tr>
+          <tr><td data-label="額面月収">35万円</td><td class="num nw" data-label="健康保険"><span>17,238円</span></td><td class="num nw" data-label="厚生年金"><span>32,025円</span></td><td class="num nw" data-label="雇用保険"><span>1,750円</span></td><td class="num nw" data-label="子育て支援金"><span>403円</span></td><td class="num" data-label="合計（40歳未満）"><span><strong>51,416円</strong></span></td><td class="num nw" data-label="合計（40〜64歳）"><span>54,251円</span></td></tr>
+          <tr><td data-label="額面月収">40万円</td><td class="num nw" data-label="健康保険"><span>19,700円</span></td><td class="num nw" data-label="厚生年金"><span>36,600円</span></td><td class="num nw" data-label="雇用保険"><span>2,000円</span></td><td class="num nw" data-label="子育て支援金"><span>460円</span></td><td class="num" data-label="合計（40歳未満）"><span><strong>58,760円</strong></span></td><td class="num nw" data-label="合計（40〜64歳）"><span>62,000円</span></td></tr>
+          <tr><td data-label="額面月収">50万円</td><td class="num nw" data-label="健康保険"><span>24,625円</span></td><td class="num nw" data-label="厚生年金"><span>45,750円</span></td><td class="num nw" data-label="雇用保険"><span>2,500円</span></td><td class="num nw" data-label="子育て支援金"><span>575円</span></td><td class="num" data-label="合計（40歳未満）"><span><strong>73,450円</strong></span></td><td class="num nw" data-label="合計（40〜64歳）"><span>77,500円</span></td></tr>
+          <tr><td data-label="額面月収">60万円</td><td class="num nw" data-label="健康保険"><span>29,550円</span></td><td class="num nw" data-label="厚生年金"><span>54,900円</span></td><td class="num nw" data-label="雇用保険"><span>3,000円</span></td><td class="num nw" data-label="子育て支援金"><span>690円</span></td><td class="num" data-label="合計（40歳未満）"><span><strong>88,140円</strong></span></td><td class="num nw" data-label="合計（40〜64歳）"><span>93,000円</span></td></tr>
         </tbody>
       </table>
     </div>
